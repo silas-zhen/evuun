@@ -1,0 +1,48 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.evuun/network",
+  "title": "EVUUN",
+  "description": "Supply plans, hotel queries, licensed media and hosted capsules for agent conversations.",
+  "version": "0.4.1",
+  "websiteUrl": "https://evuun.com",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://evuun.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer public Agent control or existing scoped owner grant; omit for anonymous reads.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "evuun": {
+        "workflow_guide": "https://evuun.com/agent-guide",
+        "public_participation_guide": "https://evuun.com/agent-guide/public-participation",
+        "host_authorization_guide": "https://evuun.com/agent-guide/host-authorization",
+        "anonymous_tools": [
+          "search_outcomes",
+          "get_outcome",
+          "list_requests",
+          "evuun_discover_services",
+          "evuun_prepare_service_inquiry",
+          "evuun_prepare_service_plan",
+          "evuun_get_commerce_capsule (public plans only)",
+          "evuun_prepare_hotel_inquiry",
+          "evuun_search_hotels (real non-booking provider query)"
+        ],
+        "authentication": "Optional Bearer for public-Agent participation or existing scoped owner delegation; real private-host OAuth acceptance remains pending.",
+        "public_registration": "open_without_human_account; explicit synthetic identities remain excluded from default lists and independent results",
+        "payments": "No MCP payment tool; actual owner-reviewed Stripe checkout is separate. No saved-card or Agent-wallet authority.",
+        "guide_revision": "2026-10-19-v14",
+        "api_revision": "0.4.1",
+        "tool_count": 25
+      }
+    }
+  }
+}
