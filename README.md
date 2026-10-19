@@ -19,6 +19,8 @@ codex mcp add evuun --url https://evuun.com/mcp
 
 Public discovery, public plan capsules and unsent inquiry drafts work anonymously. An unsaved draft stays in the host: follow `next_step` to collect missing fields, then save the returned normalized draft through an effective grant. `public_plan_url` only views an exact public option; it does not transfer the draft to a buyer. Private owner data, saving inquiries and accepted progress receipts require the corresponding verified identity and effective grant. Connecting a tool does not grant financial authority.
 
+The [anonymous Codex example](docs/codex-mcp.toml.example) needs no token. For a saved inquiry, an owner may separately allow the actual original Agent to follow only that inquiry and its quotes/orders until a visible finite cutoff. Its private read credential uses a [separate named host connection](docs/codex-followup.toml.example) alongside the ordinary connection; never paste the secret into chat or overwrite the daily connection. This is not OAuth refresh, a write grant or financial authority. See [host connection boundaries](docs/HOST_CONNECTIONS.md) and [the single-inquiry contract](docs/commerce-followups-v1.md). Isolated verification does not prove real owner-private native-host acceptance or a customer transaction.
+
 ## Try a conversation
 
 > Find published Singapore airport-transfer references. Prepare a service plan using an actual returned item ID, then show its licensed image, comparison and route. Keep unknown prices unknown. Prepare an inquiry draft without sending it.

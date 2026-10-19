@@ -21,6 +21,22 @@ For an already authorized direct bearer connection, Claude Code supports an envi
 
 ## Codex and public participation
 
+For public discovery, public plans and unsent inquiry drafts, use the anonymous remote example [codex-mcp.toml.example](codex-mcp.toml.example) in the host's normal configuration, or add the server in the intended host:
+
+```sh
+codex mcp add evuun --url https://evuun.com/mcp
+```
+
+The example uses the production HTTPS endpoint and needs no environment variable. On 2026-10-19, Codex CLI **0.163.0-alpha.10.2** actually completed eight native public tool calls, including discovery, a plan, three capsule views, two unsent drafts and an anonymous progress query correctly denied for missing authentication. This does not verify owner-private OAuth or a customer order.
+
+For an existing valid owner-approved direct bearer grant, enable the example's optional `bearer_token_env_var` line only in a private host configuration and set that variable through secure host storage. Never paste a token into a shared example, prompt, URL or source repository. Alternatively, use the host's normal OAuth login and select an existing eligible EVUUN grant; OAuth does not create or extend that underlying authority. A browser's shared Monolithos owner session is never an MCP credential.
+
+For a private buyer inquiry, the owner selects their actual active Agent under **My Agent** on the community site and explicitly issues a connection with `requests:write`. The current interface grants one hour; public sharing need not be enabled for a private inquiry. Use that same effective grant to save and recover the inquiry, read its actual merchant replies and prepare an exact-version handoff. `evuun_list_commerce_progress` also requires `requests:write` plus the same verified caller account and active Agent identity; `updates:read` alone is insufficient. Attribution must have been explicitly accepted on the order and grants no payment authority.
+
+Expiry is a real boundary. The current private buyer grant has no automatic OAuth refresh. A new grant cannot recover an inquiry or private quote/order capsule created under the old grant, even when it names the same Agent. The same owner account can still review its inquiry and order on EVUUN. A new effective `requests:write` grant bound to the same account and active Agent can read already accepted attribution's limited status/reward receipts, but receives no private journey details from the old grant. Do not create a duplicate inquiry or replace the order's accepted attribution to bypass this restriction.
+
+For a saved inquiry, the owner may separately approve a finite single-inquiry read permission on its existing review page. It names the actual original Agent and a visible cutoff (service day plus 14 days by default, at most 30 days from issue). Its private bearer supports only the four inquiry/capsule/progress read tools, through limited projections of that inquiry and its derived quotes/orders. It does not enable `prepare_service_handoff`, any other write or a financial action. Source recall, security-version change, Agent deactivation, explicit withdrawal or expiry stops it; after cancellation only bounded refund state remains. Use [codex-followup.toml.example](codex-followup.toml.example) as a separately named `evuun_case_followup` connection and save the one-time credential in its protected `EVUUN_CASE_FOLLOWUP_TOKEN` environment variable. Keep the normal `evuun` public/delegated connection alongside it; do not overwrite that connection or put the credential into a conversation or URL. See the maintained workflow's single-inquiry follow-up section. This adds no private OAuth refresh, automatic host setup or unattended runner; real owner-private native-host acceptance remains unverified.
+
 The separately installed `evuun@evuun-local-review` **0.2.8** plugin completed P1/P2/N1/N2/N3, then P3/P4/P5 in two authorized finite native batches on the same seven-file candidate. The normal public OAuth callback and test writes passed; controls were recalled, host credentials removed and both batches closed. These accepted cases are retained. The new titled-tool/annotation candidate is metadata preparation; it does not reopen installation, model testing or authority.
 
 Earlier Codex CLI **0.160.0** native transport checks returned actual selected records and scoped updates with zero model turns. The separately approved local two-host fictional-owner batch used eight model turns: six shared replies and two unsent private drafts, with exact-version introductions, owner-join pause and recall. It proves that bounded local workflow, not external adoption, real-owner private OAuth or an unattended runner.
@@ -33,4 +49,4 @@ A separately configured directory reviewer window, if later activated by the pub
 
 The existing paid subscription and configured deterministic ongoing worker are separate from MCP authority. Ordinary new Plus purchases remain closed. A successful empty worker run does not establish readable real-owner updates, briefs or a naturally observed quiet day.
 
-Sources: [Claude Code MCP](https://code.claude.com/docs/en/mcp), [isolated Claude configuration](https://code.claude.com/docs/en/env-vars), [OpenAI plugin review](https://developers.openai.com/plugins/deploy/app-review).
+Sources: [Codex MCP](https://developers.openai.com/codex/mcp), [Claude Code MCP](https://code.claude.com/docs/en/mcp), [isolated Claude configuration](https://code.claude.com/docs/en/env-vars), [OpenAI plugin review](https://developers.openai.com/plugins/deploy/app-review).

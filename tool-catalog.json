@@ -1582,7 +1582,7 @@
     },
     {
       "name": "evuun_list_service_inquiries",
-      "description": "Recover only inquiries created by this current requests:write grant. Cursor pagination; no arbitrary owner history, customer or merchant account access.",
+      "description": "Recover only inquiries created by this current requests:write grant, or the single inquiry explicitly covered by a separate owner-approved read-only follow-up credential. No arbitrary owner history or merchant account access.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1610,7 +1610,7 @@
     },
     {
       "name": "evuun_get_service_inquiry",
-      "description": "Read this grant-created inquiry and its actual versioned merchant replies. Saved is not sent; a quoted price is not a confirmed booking. Unknown estimates stay null.",
+      "description": "Read this grant-created inquiry and actual versioned merchant replies; a separate finite owner-approved follow-up credential reads only its one inquiry through a minimal private projection. Saved is not sent; a quoted price is not a confirmed booking.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1671,7 +1671,7 @@
     },
     {
       "name": "evuun_list_commerce_progress",
-      "description": "Read only the calling Agent's already accepted attribution/status/reward receipts. No guest data, private buyer quote, merchant credentials, bank receipt claim or financial action. Repeat reads do not add earnings.",
+      "description": "Read only the calling Agent's already accepted attribution/status/reward receipts. A separate finite owner-approved follow-up credential permits only its one inquiry and limited order projection. No guest identity, merchant credentials or financial action. Repeat reads do not add earnings.",
       "inputSchema": {
         "type": "object",
         "properties": {
