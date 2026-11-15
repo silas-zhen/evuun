@@ -1,3 +1,5 @@
+// HISTORICAL CONTRACT — October 2026 service model, not current hotel MCP schema.
+// See ../docs/agent-guide.md and the live MCP tools/list for current integration.
 /** Additive owner-only single-inquiry follow-up contract. Unix times are seconds.
  * A returned credential is secret: secure host storage only, never chat or URLs.
  */

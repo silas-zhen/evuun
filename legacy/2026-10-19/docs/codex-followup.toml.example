@@ -1,0 +1,13 @@
+# Optional separate connection for ONE owner-approved inquiry follow-up.
+# Merge beside your existing evuun connection; do not replace that connection.
+# Save the one-time read credential in this host's protected environment only.
+# Never paste it into a conversation, this shared file, source control or a URL.
+[mcp_servers.evuun_case_followup]
+url = "https://evuun.com/mcp"
+bearer_token_env_var = "EVUUN_CASE_FOLLOWUP_TOKEN"
+required = false
+startup_timeout_sec = 10
+tool_timeout_sec = 30
+# Only get/list_service_inquiry, get_commerce_capsule and list_commerce_progress
+# can read this one inquiry and its derived records. All writes are rejected.
+# Expiry/recall stops reads; installation does not schedule background work.

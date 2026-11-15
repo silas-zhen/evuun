@@ -1,44 +1,42 @@
 # EVUUN
 
-Supply references, licensed images, versioned plans and service inquiry tools for agent conversations.
+**Hotel stays through your agent.** Find hotel offers, inspect room details and cancellation terms, and prepare a selected quote for the traveler to review and pay.
 
-**Publisher:** Monolithos, LLC · **Support:** hello@monolithos.ai  
-**Remote MCP:** https://evuun.com/mcp · **API:** 0.4.1 · **Tools:** 25
+Publisher: **Monolithos, LLC** · Support: **support@evuun.com**
 
-[Live developer entry](https://evuun.com/) · [Maintained guide](https://evuun.com/agent-guide) · [MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers/com.evuun%2Fnetwork/versions/0.4.1)
+Remote MCP: **https://evuun.com/mcp** · Transport: **Streamable HTTP**
 
-This repository contains public connection documentation, tool schemas and examples. The production backend and private account data are maintained separately.
+[Documentation](https://evuun.com/docs/) · [Privacy](https://evuun.com/privacy/) · [Terms](https://evuun.com/terms/) · [Official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers/com.evuun%2Fnetwork/versions/latest)
 
 ## Connect
 
-Configure a Streamable HTTP MCP connection at `https://evuun.com/mcp`. For Codex CLI:
+Add `https://evuun.com/mcp` as a remote MCP server in your host. Complete the EVUUN OAuth authorization flow when prompted. Guest access covers supported pre-payment features; connect an EVUUN account to access its authorized arrangements. Guest access is not a promise of anonymous, credential-free API access.
 
-```sh
-codex mcp add evuun --url https://evuun.com/mcp
-```
+Use the [host connection guide](docs/HOST_CONNECTIONS.md) for Manus, Perplexity Computer, Dify and other MCP hosts. This repository also includes a portable Agent Plugins configuration at its root (`plugin.json`, `mcp.json`). A host supporting that format can discover the connection configuration. Marketplace listing and host-specific acceptance are separate from having a valid package.
 
-Public discovery, public plan capsules and unsent inquiry drafts work anonymously. An unsaved draft stays in the host: follow `next_step` to collect missing fields, then save the returned normalized draft through an effective grant. `public_plan_url` only views an exact public option; it does not transfer the draft to a buyer. Private owner data, saving inquiries and accepted progress receipts require the corresponding verified identity and effective grant. Connecting a tool does not grant financial authority.
+## Ask for a stay
 
-The [anonymous Codex example](docs/codex-mcp.toml.example) needs no token. For a saved inquiry, an owner may separately allow the actual original Agent to follow only that inquiry and its quotes/orders until a visible finite cutoff. Its private read credential uses a [separate named host connection](docs/codex-followup.toml.example) alongside the ordinary connection; never paste the secret into chat or overwrite the daily connection. This is not OAuth refresh, a write grant or financial authority. See [host connection boundaries](docs/HOST_CONNECTIONS.md) and [the single-inquiry contract](docs/commerce-followups-v1.md). Isolated verification does not prove real owner-private native-host acceptance or a customer transaction.
+> Find a hotel in Bangkok, Thailand, for two adults in one room, 10–12 January 2027. Guest nationality: Taiwan. Quote in USD, up to USD 200 total, with free cancellation if available. Show the actual room details and cancellation deadline. Wait for my selection before preparing a quote; do not pay.
 
-## Try a conversation
+Provide destination, dates, guests, guest nationality, currency and preferences. Missing conditions should be requested rather than guessed. Returned inventory, prices and cancellation deadlines determine what is actually available. Update example dates before use if they have passed.
 
-> Find published Singapore airport-transfer references. Prepare a service plan using an actual returned item ID, then show its licensed image, comparison and route. Keep unknown prices unknown. Prepare an inquiry draft without sending it.
+Search and quote preparation do **not** mean the room is paid or confirmed. The traveler reviews the linked EVUUN page and continues to the hotel supplier's checkout. Preserve the distinction between a quote, payment, supplier confirmation and a refund status. Do not promise direct acceptance of agent-wallet or shared payment tokens.
 
-The sequence is `evuun_discover_services` → `evuun_prepare_service_plan` → `evuun_get_commerce_capsule`. A plan retains its ID, revision and selected option across rich JSON, Markdown fallback and hosted HTTPS presentation. See [the request example](examples/service-plan.json) and [the full tool catalog](tool-catalog.json).
+## Current integration scope
 
-Supported hosts may render the JSON and images directly. Hosted links and Markdown provide a fallback; iframe support and automatic window closing depend on the host.
+The current public listing covers hotel stays. Flights, visa applications, restaurant reservations and the historical media/public-agent workflows are not advertised as capabilities of this release. Read the [integration guide](docs/agent-guide.md) and the [tool-name snapshot](tool-catalog.json); obtain actual inputs and available tools from the connected server's `tools/list`.
 
-## Hotels and transactions
+MCP discovery is globally public; this distribution adds no country allowlist. A host's availability, network access, supplier eligibility and returned hotel inventory remain separate facts. Directory publication does not automatically install EVUUN for every user or guarantee search-engine indexing.
 
-`evuun_prepare_hotel_inquiry` prepares an unsent stay inquiry and lists missing requirements. `evuun_search_hotels` performs a real non-booking provider query with actual dates, occupancies, guest nationality and a stable idempotency key. A real query must be authorized; the example does not execute it. Unconfirmed public prices are omitted. Automatic hotel booking and MoR payment remain unavailable pending separate provider confirmation.
+## Release status
 
-Local-service references are researched candidates, not asserted merchant partnerships, confirmed inventory or binding quotes. A real written quote and eligible supplier are required. The owner's separate Stripe checkout reviews the exact version, price and terms; no MCP tool charges a saved card. For the standard deposit model, EVUUN collects 20% of the customer total, with the remaining 80% governed by the accepted quote. A paid procurement request remains pending supply until actual confirmation, with the accepted deadline and full-refund responsibility shown.
+- Official Registry identity: `com.evuun/network`, metadata version **0.4.2**, published 15 November 2026.
+- Portable package: **0.6.3-rc.2**, checked against the official Agent Plugins manifest and MCP JSON schemas. This is a distribution candidate, not a claim that each marketplace or host has approved it.
+- This repository contains public configuration, documentation and historical contracts. It contains no production backend, account data, reviewer credentials or payment authority.
+- The earlier distribution is retained in [legacy/2026-10-19](legacy/2026-10-19/). It is historical material, not the current installation contract. Existing historical validation results are not reused as acceptance results for the current hotel workflow.
 
-Cash contribution-pool allocation is 40/25/35. Genesis Points use a separate 45/35/20 allocation and pending/vested/voided states; the Epoch 1 multiplier is 3.0x. Formula examples are not awards. GP are not offered for sale or cash redemption, and no future token or return is promised.
+## 中文
 
-## Validation scope
+EVUUN 让你的 Agent 找酒店、核对房间证据与取消条款，再把选定报价交给你确认和付款。连接地址为 `https://evuun.com/mcp`，按宿主提示完成 OAuth；访客连接与账户连接的可用范围不同。搜索、生成报价都不代表已经付款或订成。
 
-On 2026-10-19 a real Codex CLI connected to the public endpoint and completed discovery, a versioned plan, three capsule views, and two unsent inquiry drafts. An anonymous progress query correctly required authorization. This proves the public native-client path, not a completed customer payment, booking, fulfillment, settlement or payout. No provider hotel query or charge was made by that client test.
-
-See [the integration guide](docs/agent-guide.md), [the plan contract](contracts/agent-commerce-v1.ts), and [the media contract](contracts/commerce-media-v1.ts). Media retain individual source, creator, license and depiction restrictions; a contextual hotel photo is not a photograph of a supplied vehicle or a guaranteed room category.
+本发行面向全球公开发现，不主动增加地区白名单；平台自身可用范围与供应商当次可售结果分别说明。当前使用方式见接入文档，早期问店、媒体和公共 Agent 资料归入历史区。

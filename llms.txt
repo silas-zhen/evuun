@@ -1,0 +1,13 @@
+# EVUUN
+
+> Hotel stays through your agent. Remote MCP with OAuth; search, room/cancellation evidence and quote preparation precede traveler checkout.
+
+- [Current overview](https://github.com/silas-zhen/evuun/blob/main/README.md)
+- [Host connection guide](https://github.com/silas-zhen/evuun/blob/main/docs/HOST_CONNECTIONS.md)
+- [Hotel workflow](https://github.com/silas-zhen/evuun/blob/main/docs/agent-guide.md)
+- [Public product documentation](https://evuun.com/docs/)
+- [Privacy](https://evuun.com/privacy/)
+- [Terms](https://evuun.com/terms/)
+- [MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers/com.evuun%2Fnetwork/versions/latest)
+
+The legacy directory is historical and is not a current integration guide. This repository is not an anonymous public booking API. Obtain tools and argument schemas from the authorized MCP connection.

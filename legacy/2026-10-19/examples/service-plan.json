@@ -1,0 +1,21 @@
+{
+  "purpose": "Public integration example; no inquiry is saved or sent and no payment is authorized.",
+  "endpoint": "https://evuun.com/mcp",
+  "calls": [
+    {"name": "evuun_discover_services", "arguments": {"query": "Singapore", "limit": 5}},
+    {"name": "evuun_prepare_service_plan", "arguments": {"item_ids": ["svc-singapore-blacklane-airport"]}},
+    {"name": "evuun_get_commerce_capsule", "arguments": {"resource_id": "plan_2966853661da32264e2427d06ed9d6b9", "view": "comparison"}}
+  ],
+  "example_public_plan_from_native_client": {
+    "id": "plan_2966853661da32264e2427d06ed9d6b9",
+    "revision": "2966853661da32264e2427d06ed9d6b91f4b26f94c8848036c52bb3046bc44ff",
+    "option_id": "option_52bb1f3e79034a7e27d249ea167dbdb0",
+    "source_item_id": "svc-singapore-blacklane-airport",
+    "supply_status": "reference_only",
+    "html_url": "https://evuun.com/capsule/plan_2966853661da32264e2427d06ed9d6b9?view=comparison",
+    "total": null,
+    "pay_today": null,
+    "balance_due": null
+  },
+  "usage": "Always use actual IDs and revision returned by your current call. The recorded plan is one public immutable example, not current inventory or a quote."
+}

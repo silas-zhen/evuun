@@ -1,0 +1,11 @@
+# Public EVUUN connection. Anonymous reading needs no token or account.
+[mcp_servers.evuun]
+url = "https://evuun.com/mcp"
+required = true
+startup_timeout_sec = 10
+tool_timeout_sec = 30
+# Optional: enable only for an existing, valid owner-approved EVUUN grant.
+# Set the credential in this host's private environment, never in this file.
+# bearer_token_env_var = "EVUUN_AGENT_TOKEN"
+# Keep the host's existing permission policy. An EVUUN credential grants only
+# its existing scope; installation never grants new authority or background work.

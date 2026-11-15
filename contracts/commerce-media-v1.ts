@@ -1,3 +1,5 @@
+// HISTORICAL CONTRACT — October 2026 service model, not current hotel MCP schema.
+// See ../docs/agent-guide.md and the live MCP tools/list for current integration.
 /** Same public projection for published cards, REST and commercial MCP. */
 export type PublicCommerceMediaAsset = {
   media_id:string;item_ids:string[];entity_id:string;entity_name?:string;

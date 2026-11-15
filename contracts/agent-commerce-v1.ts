@@ -1,3 +1,5 @@
+// HISTORICAL CONTRACT — October 2026 service model, not current hotel MCP schema.
+// See ../docs/agent-guide.md and the live MCP tools/list for current integration.
 /** v0.5 implementation contract, 2026-10-19. Reuses commerce-v1 facts/auth.
  * Public plan snapshots contain catalog facts only. Buyer intent, dates,
  * caller_task_ref and private quotes never enter public plan/capsule URLs.
